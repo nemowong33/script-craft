@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# OpenClaw runtime state
+agents/main/agent/auth-state.json
+agents/main/agent/auth-profiles.json
+agents/main/agent/models.json
+agents/main/sessions/
+subagents/
+logs/
+media/
+flows/
+tasks/
+canvas/
+devices/
+identity/
+
+# Gateway / runtime files
+exec-approvals.json
+openclaw.json
+update-check.json
+
+# Feishu runtime cache
+feishu/
+
+# Workspace runtime cache
+workspace/.openclaw/workspace-state.json
+
+# SQLite / locks / temp
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.lock
+
+# Imported temp dirs
+workspace/novel_import/

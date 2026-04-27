@@ -1,0 +1,22 @@
+{
+  "entries": {
+    "/Users/chandor/.openclaw/openclaw.json": {
+      "lastKnownGood": {
+        "hash": "5dc02d309395b0a233ec8b7cff9e1cdaf61c190fb98fdde9c90dfc8300b1440d",
+        "bytes": 1880,
+        "mtimeMs": 1777037421454.7454,
+        "ctimeMs": 1777037421454.7454,
+        "dev": "16777230",
+        "ino": "1594334",
+        "mode": 384,
+        "nlink": 1,
+        "uid": 501,
+        "gid": 20,
+        "hasMeta": true,
+        "gatewayMode": "local",
+        "observedAt": "2026-04-24T13:30:22.054Z"
+      },
+      "lastObservedSuspiciousSignature": null
+    }
+  }
+}

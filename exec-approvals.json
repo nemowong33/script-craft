@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/Users/chandor/.openclaw/exec-approvals.sock",
+    "token": "-jYnWNVtDHMkwbVtzcpfaR-mr-djwJ4-"
+  },
+  "defaults": {},
+  "agents": {}
+}
