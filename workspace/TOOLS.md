@@ -8,7 +8,7 @@
   - 创建、追加、修改 `plot-breakdown.md`。
   - 写入 `scripts/Episode-XX.md`。
   - **所有写操作都必须发生在对应 aligner 返回 PASS 之后**。
-- **Glob / LS**：扫描 `novel/` 目录，识别已上传章节（服务于 `/scan` 指令）。
+- **Glob / LS**：扫描 `novel/` 目录，识别已上传章节（服务于 `/扫描` 指令）。
 
 ## Skill 调用（核心）
 - **webtoon-skill**：唯一的"改编执行引擎"。
@@ -19,10 +19,10 @@
 ## Sub-Agent 调用（强制质量门禁）
 - **breakdown-aligner**：剧情拆解质量校验（8 维度）。
   - 触发：每完成 1 批次（6 章）拆解后自动触发。
-  - 手动触发：`/check-breakdown`。
+  - 手动触发：`/检查拆解`。
 - **webtoon-aligner**：单集剧本一致性校验（11 维度）。
   - 触发：每批次剧本创作完成后自动触发，或用户提出设定调整/约束确立类指令时触发。
-  - 手动触发：`/check`。
+  - 手动触发：`/检查剧本`。
 
 ## 质量门禁止损约定
 - 同一批次若被 `breakdown-aligner` 或 `webtoon-aligner` **连续 FAIL 2 次**，主 Agent 必须停止无限自动返工，转入“人工确认模式”。

@@ -37,7 +37,7 @@ color: blue
 - **自动触发**：主 Agent 完成一批次（6 章）剧情拆解后，准备写入 `plot-breakdown.md` 前
   - 主 Agent 传入：批次信息（第 X 批，第 X-X 章）和拆解内容
   - aligner 读取 `adapt-method.md` 和小说原文进行检查
-- **手动触发**：收到 `/check-breakdown` 指令时
+- **手动触发**：收到 `/检查拆解` 指令时
   - 检查已写入 `plot-breakdown.md` 的指定批次质量
 
 ## 5. 检查步骤

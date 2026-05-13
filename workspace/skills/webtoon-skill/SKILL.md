@@ -34,8 +34,8 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
     第一步：理解改编需求
         识别当前改编阶段：
         - 如果在讨论小说类型或 plot-breakdown.md 不存在 → 类型确定阶段
-        - 如果在讨论剧情拆解或刚执行 /breakdown → 剧情拆解阶段
-        - 如果在创作单集剧本或刚执行 /script → 单集剧本阶段
+        - 如果在讨论剧情拆解或刚执行 /拆解 → 剧情拆解阶段
+        - 如果在创作单集剧本或刚执行 /出稿 → 单集剧本阶段
         - 如果用户提出修改意见或 breakdown-aligner/webtoon-aligner 返回 FAIL → 内容修订阶段
 
     第二步：读取改编资源
@@ -56,8 +56,8 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
             2. 读取小说源文件对应章节的原文
             3. 读取 adapt-method.md（网文改编方法论，最重要）
             4. 读取 output-style.md（改编输出风格，最重要）
-            5. 读取 templates/script-template.md（文档格式模板）
-            6. 读取 examples/script-example.md（单集剧本示例）
+            5. 读取 templates/出稿-template.md（文档格式模板）
+            6. 读取 examples/出稿-example.md（单集剧本示例）
             7. 读取已创作的剧本（如有），确保风格一致
 
         **内容修订阶段**：
@@ -95,9 +95,9 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
         **单集剧本**：
             基于剧情点和小说原文和读取的资源：
             - 严格遵循 adapt-method.md 的改编方法论（最重要）
-            - 严格按照 templates/script-template.md 的格式结构
+            - 严格按照 templates/出稿-template.md 的格式结构
             - 严格应用 output-style.md 的视觉化、快节奏写作风格（最重要）
-            - 参考 examples/script-example.md 的示例
+            - 参考 examples/出稿-example.md 的示例
             - 批量生成该批次所有集的正文，每集 500-800 字
             - 确保使用视觉描述符号（※ 场景、△ 动作、【特效】【系统面板】等）
             - 每集必须以悬念结尾（【卡黑】）
@@ -129,7 +129,7 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
             返回符合 templates/plot-breakdown-template.md 格式的剧情点列表，追加到 plot-breakdown.md
 
         **单集剧本阶段**：
-            返回符合 templates/script-template.md 格式的完整单集剧本
+            返回符合 templates/出稿-template.md 格式的完整单集剧本
 
         **内容修订阶段**：
             返回修改后的完整文档内容，格式与原文档类型对应，写入对应文档

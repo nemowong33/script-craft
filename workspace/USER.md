@@ -7,7 +7,7 @@
 ## 偏好
 - **沟通语言**：中文。
 - **交付物**：Markdown 文档（`plot-breakdown.md`、`scripts/Episode-XX.md`）。
-- **交互方式**：通过斜杠指令驱动主流程（`/breakdown`、`/script`、`/scan`、`/status`、`/help`）。
+- **交互方式**：通过斜杠指令驱动主流程（`/拆解`、`/出稿`、`/扫描`、`/进度`、`/帮助`）。
 
 ## 工作目标
 将一部网络小说（60 万 - 300 万字）改编成动态漫剧项目：
@@ -17,4 +17,4 @@
 
 ## 用户上传规范
 - 小说源文件：按章拆分为 `novel/chapter-00X.txt`。
-- 放入 `workspace/novel/` 文件夹后使用 `/scan` 或 `/breakdown` 驱动流程。
+- 放入 `workspace/novel/` 文件夹后使用 `/扫描` 或 `/拆解` 驱动流程。
