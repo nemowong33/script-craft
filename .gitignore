@@ -38,6 +38,8 @@ workspace/novel/*
 !workspace/novel/.gitkeep
 workspace/scripts/*
 !workspace/scripts/.gitkeep
+workspace/memory/*
+!workspace/memory/.gitkeep
 workspace/plot-breakdown.md
 
 # Security - sensitive files
