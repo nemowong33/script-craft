@@ -3,10 +3,7 @@
 **/.DS_Store
 
 # OpenClaw runtime state
-agents/main/agent/auth-state.json
-agents/main/agent/auth-profiles.json
-agents/main/agent/models.json
-agents/main/sessions/
+agents/
 subagents/
 logs/
 media/
@@ -25,7 +22,7 @@ update-check.json
 feishu/
 
 # Workspace runtime cache
-workspace/.openclaw/workspace-state.json
+workspace/.openclaw/
 
 # SQLite / locks / temp
 *.sqlite
@@ -35,3 +32,39 @@ workspace/.openclaw/workspace-state.json
 
 # Imported temp dirs
 workspace/novel_import/
+
+# Security - sensitive files
+.env
+.env.local
+.env.*.local
+*.env
+config.json
+config.local.json
+secrets.json
+credentials.json
+auth.json
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_dsa
+id_ed25519
+*.p8
+*.jks
+*.keystore
+
+# Node.js / Python cache
+node_modules/
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
