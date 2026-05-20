@@ -33,6 +33,11 @@ workspace/.openclaw/
 # Imported temp dirs
 workspace/novel_import/
 
+# Project content - sensitive files (do not commit)
+workspace/novel/
+workspace/scripts/
+workspace/plot-breakdown.md
+
 # Security - sensitive files
 .env
 .env.local
