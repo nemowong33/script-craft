@@ -12,6 +12,9 @@ tasks/
 canvas/
 devices/
 identity/
+!workspace/agents/
+!workspace/agents/short-drama-aligner/
+!workspace/agents/short-drama-aligner/**
 
 # Gateway / runtime files
 exec-approvals.json
