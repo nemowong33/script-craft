@@ -13,8 +13,12 @@ canvas/
 devices/
 identity/
 !workspace/agents/
-!workspace/agents/short-drama-aligner/
-!workspace/agents/short-drama-aligner/**
+!workspace/agents/adaptation-breakdown-aligner/
+!workspace/agents/adaptation-breakdown-aligner/**
+!workspace/agents/adaptation-script-aligner/
+!workspace/agents/adaptation-script-aligner/**
+!workspace/agents/original-aligner/
+!workspace/agents/original-aligner/**
 
 # Gateway / runtime files
 exec-approvals.json
@@ -37,13 +41,16 @@ workspace/.openclaw/
 workspace/novel_import/
 
 # Project content - sensitive files (do not commit)
-workspace/novel/*
-!workspace/novel/.gitkeep
-workspace/scripts/*
-!workspace/scripts/.gitkeep
+workspace/adaptation/novel/*
+!workspace/adaptation/novel/.gitkeep
+workspace/adaptation/scripts/*
+!workspace/adaptation/scripts/.gitkeep
+workspace/original/*.md
+workspace/original/scripts/*
+!workspace/original/scripts/.gitkeep
 workspace/memory/*
 !workspace/memory/.gitkeep
-workspace/plot-breakdown.md
+workspace/adaptation/plot-breakdown.md
 
 # Security - sensitive files
 .env

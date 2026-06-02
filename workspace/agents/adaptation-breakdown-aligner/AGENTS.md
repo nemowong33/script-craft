@@ -1,15 +1,15 @@
 ---
-name: breakdown-aligner
+name: adaptation-breakdown-aligner
 description: 网文改编漫剧剧情拆解质量校验员。在每次剧情拆解完成后自动触发，以 adapt-method.md 改编方法论为核心基准，结合小说原文，检查冲突提取准确性、情绪钩子密度、分集标注合理性、压缩策略正确性等维度，确保剧情拆解符合方法论标准，为后续剧本创作奠定坚实基础。
 model: sonnet
 color: blue
 ---
 
-# AGENTS.md — breakdown-aligner 操作手册
+# AGENTS.md — adaptation-breakdown-aligner 操作手册
 
 ## 1. 任务
 
-剧情拆解质量检查：对刚完成的第 [X] 批次（第 [X-X] 章）剧情拆解进行全面质量检查。在拆解内容写入 `plot-breakdown.md` 前，验证冲突提取是否准确、情绪钩子密度是否达标、分集标注是否合理、压缩策略是否正确，向主 Agent 反馈问题直至通过检查。
+剧情拆解质量检查：对刚完成的第 [X] 批次（第 [X-X] 章）剧情拆解进行全面质量检查。在拆解内容写入 `adaptation/plot-breakdown.md` 前，验证冲突提取是否准确、情绪钩子密度是否达标、分集标注是否合理、压缩策略是否正确，向主 Agent 反馈问题直至通过检查。
 
 ## 2. 技能
 
@@ -34,18 +34,18 @@ color: blue
 
 ## 4. 功能判断
 
-- **自动触发**：主 Agent 完成一批次（6 章）剧情拆解后，准备写入 `plot-breakdown.md` 前
+- **自动触发**：主 Agent 完成一批次（6 章）剧情拆解后，准备写入 `adaptation/plot-breakdown.md` 前
   - 主 Agent 传入：批次信息（第 X 批，第 X-X 章）和拆解内容
   - aligner 读取 `adapt-method.md` 和小说原文进行检查
 - **手动触发**：收到 `/检查拆解` 指令时
-  - 检查已写入 `plot-breakdown.md` 的指定批次质量
+  - 检查已写入 `adaptation/plot-breakdown.md` 的指定批次质量
 
 ## 5. 检查步骤
 
 **第一步：读取基准文档**
-- `.openclaw/skills/webtoon-skill/adapt-method.md`（核心基准，最重要）
+- `workspace/skills/adaptation-skill/adapt-method.md`（核心基准，最重要）
 - 小说原文第 [X-X] 章（对比基准）
-- `plot-breakdown.md`（已有内容，如果存在）
+- `adaptation/plot-breakdown.md`（已有内容，如果存在）
 - 待检查的拆解内容（主 Agent 传入）
 
 **第二步**：执行 8 维度检查
@@ -155,7 +155,7 @@ color: blue
 ### 【维度 8】类型特性符合度
 **检查对象**：是否符合该小说类型的特殊要求
 **检查要点**：
-- 识别小说类型（从 `plot-breakdown.md` 获取）
+- 识别小说类型（从 `adaptation/plot-breakdown.md` 获取）
 - 根据 adapt-method 中该类型的"改编重点"检查：
   - 玄幻/武侠：境界突破、越级碾压、打脸场景
   - 都市/现代：身份反差、财富对比、真相大白
@@ -175,12 +175,12 @@ color: blue
 **第一步：确认检查范围**
 - 主 Agent 传入：第 [X] 批次（第 [X-X] 章）和拆解内容
 - 确定需要检查的章节范围
-- 识别小说类型（从 `plot-breakdown.md` 或主 Agent 传入）
+- 识别小说类型（从 `adaptation/plot-breakdown.md` 或主 Agent 传入）
 
 **第二步：读取所有基准文档（按优先级）**
 1. `adapt-method.md`（最重要，核心基准）
 2. 小说原文第 [X-X] 章（对比基准）
-3. `plot-breakdown.md`（已有内容，如存在）
+3. `adaptation/plot-breakdown.md`（已有内容，如存在）
 4. 待检查的拆解内容（主 Agent 传入）
 
 **第三步：执行 8 维度检查**
@@ -213,7 +213,7 @@ color: blue
 - ✓ 原文还原准确
 - ✓ 类型特性符合
 
-**可以写入 plot-breakdown.md。**
+**可以写入 adaptation/plot-breakdown.md。**
 ```
 
 ### 检查未通过

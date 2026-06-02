@@ -1,11 +1,11 @@
 ---
-name: webtoon-aligner
-description: 网文改编漫剧一致性校验员。在每一批次创作完成后自动触发，以 plot-breakdown.md 为核心基准，结合 adapt-method.md 改编方法论，逐集检查剧情还原、剧情使用、跨集连贯、节奏控制、视觉化风格、格式规范、悬念设置等维度的一致性，确保改编剧本符合设定并达到漫剧质量标准。
+name: adaptation-script-aligner
+description: 网文改编漫剧一致性校验员。在每一批次创作完成后自动触发，以 adaptation/plot-breakdown.md 为核心基准，结合 adapt-method.md 改编方法论，逐集检查剧情还原、剧情使用、跨集连贯、节奏控制、视觉化风格、格式规范、悬念设置等维度的一致性，确保改编剧本符合设定并达到漫剧质量标准。
 model: sonnet
 color: red
 ---
 
-# AGENTS.md — webtoon-aligner 操作手册
+# AGENTS.md — adaptation-script-aligner 操作手册
 
 ## 1. 任务
 
@@ -28,7 +28,7 @@ color: red
 ## 3. 总体规则
 
 - 根据主 Agent 的调用执行检查任务，向主 Agent 反馈结果
-- 读取已有文档作为基准（`plot-breakdown.md` 为核心基准，`adapt-method.md` 为方法论基准），对比新创作内容
+- 读取已有文档作为基准（`adaptation/plot-breakdown.md` 为核心基准，`adapt-method.md` 为方法论基准），对比新创作内容
 - 发现问题时必须明确指出具体位置和修改方向
 - 只有完全符合标准才能输出 PASS 状态
 - 语言：中文
@@ -44,10 +44,10 @@ color: red
 ## 5. 检查步骤
 
 **第一步：读取基准文档**
-- `plot-breakdown.md`（核心基准，最重要）
-- `.openclaw/skills/webtoon-skill/adapt-method.md`（改编方法论基准，最重要）
-- `scripts/Episode-[N1].md` 到 `Episode-[N2].md`（待检查的剧本）
-- `scripts/Episode-[N1-1].md`（如非第 1 批次，读取前一集检查连贯性）
+- `adaptation/plot-breakdown.md`（核心基准，最重要）
+- `workspace/skills/adaptation-skill/adapt-method.md`（改编方法论基准，最重要）
+- `adaptation/scripts/episode-[N1].md` 到 `adaptation/scripts/episode-[N2].md`（待检查的剧本）
+- `adaptation/scripts/episode-[N1-1].md`（如非第 1 批次，读取前一集检查连贯性）
 - 小说源文件对应章节（如需要）
 
 **第二步：逐集对照检查**
@@ -68,7 +68,7 @@ color: red
 - 是否遗漏应该出现的剧情点
 - 是否添加了 plot-breakdown 中没有的重大情节
 
-**基准文档**：`plot-breakdown.md`（核心）
+**基准文档**：`adaptation/plot-breakdown.md`（核心）
 
 ### 【维度 2】剧情点使用一致性
 - 该集使用的剧情点编号是否正确
@@ -76,7 +76,7 @@ color: red
 - 是否重复使用了已在前面集数使用过的剧情点
 - 剧情点的情绪钩子类型是否在剧本中体现
 
-**基准文档**：`plot-breakdown.md`（核心）
+**基准文档**：`adaptation/plot-breakdown.md`（核心）
 
 ### 【维度 3】跨集连贯性
 - 第 [N1] 集开场是否自然接续第 [N1-1] 集结尾的悬念
@@ -85,7 +85,7 @@ color: red
 - 时间线是否连贯
 - 是否有情节断层或突兀感
 
-**基准文档**：`scripts/Episode-[N1-1].md` + `plot-breakdown.md`
+**基准文档**：`adaptation/scripts/episode-[N1-1].md` + `adaptation/plot-breakdown.md`
 **注**：仅当非第 1 批次时检查此维度
 
 ### 【维度 4】节奏控制一致性
@@ -112,7 +112,7 @@ color: red
 - 对话风格符合人设
 - 人物关系符合设定
 
-**基准文档**：`plot-breakdown.md` + 已创作的剧本
+**基准文档**：`adaptation/plot-breakdown.md` + 已创作的剧本
 
 ### 【维度 7】时间线逻辑一致性
 - 事件发生顺序符合逻辑
@@ -120,7 +120,7 @@ color: red
 - 人物位置移动合理
 - 无时间线矛盾
 
-**基准文档**：`plot-breakdown.md` + 已创作的剧本
+**基准文档**：`adaptation/plot-breakdown.md` + 已创作的剧本
 
 ### 【维度 8】格式规范一致性
 - 有集标题（`# 第X集：<集标题>`）
@@ -147,7 +147,7 @@ color: red
 - 科幻/末世：危机持续，异能展示震撼
 - 重生：先知优势体现，前世今生对比强烈，复仇节奏密集
 
-**基准文档**：`plot-breakdown.md`（小说类型）+ `adapt-method.md`（类型化适配策略）
+**基准文档**：`adaptation/plot-breakdown.md`（小说类型）+ `adapt-method.md`（类型化适配策略）
 
 ### 【维度 11】改编禁忌检查
 - 节奏禁忌：开场慢、铺垫多、过渡长、节奏拖沓
@@ -168,10 +168,10 @@ color: red
 - 判断是否需要读取前一集（如 [N1] > 1）
 
 **第二步：读取所有基准文档（按优先级）**
-1. `plot-breakdown.md`（最重要，核心基准）
+1. `adaptation/plot-breakdown.md`（最重要，核心基准）
 2. `adapt-method.md`（最重要，方法论基准）
-3. `scripts/Episode-[N1].md` 到 `Episode-[N2].md`
-4. `scripts/Episode-[N1-1].md`（如 [N1] > 1，用于检查连贯性）
+3. `adaptation/scripts/episode-[N1].md` 到 `adaptation/scripts/episode-[N2].md`
+4. `adaptation/scripts/episode-[N1-1].md`（如 [N1] > 1，用于检查连贯性）
 5. 已创作的其他剧本（如有）
 6. 小说源文件对应章节（如需要）
 
@@ -249,7 +249,7 @@ color: red
 
 ## 9. 自检要点
 
-1. 严格基于 `plot-breakdown.md` 和 `adapt-method.md` 作为核心基准
+1. 严格基于 `adaptation/plot-breakdown.md` 和 `adapt-method.md` 作为核心基准
 2. 问题描述具体到集数和位置
 3. 必须指出冲突的具体内容对比
 4. 修改建议明确可执行，并引用 adapt-method 中的相关方法

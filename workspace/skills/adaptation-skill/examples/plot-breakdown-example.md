@@ -1,6 +1,6 @@
 # 剧情拆解示例 — plot-breakdown-example.md
 
-> 本文件是 webtoon-skill 的改编示例。以虚构小说《神文觉醒》（玄幻）前 6 章为例。
+> 本文件是 adaptation-skill 的改编示例。以虚构小说《神文觉醒》（玄幻）前 6 章为例。
 > **仅作风格示意，不要因此限制改编发挥。**
 
 ---
@@ -8,7 +8,7 @@
 # 《神文觉醒》剧情拆解与分集标注
 
 **小说类型**：玄幻
-**改编方法**：webtoon-skill / adapt-method.md + output-style.md
+**改编方法**：adaptation-skill / adapt-method.md + output-style.md
 **总集数**：自然生成（不预设）
 
 ---

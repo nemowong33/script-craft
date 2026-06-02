@@ -1,5 +1,5 @@
 ---
-name: webtoon-skill
+name: adaptation-skill
 description: 网文改编漫剧技能包。执行剧情拆解、分集标注、单集剧本的专业改编，基于网文改编方法论和视觉化快节奏的写作风格生成高质量漫剧内容。
 ---
 
@@ -9,7 +9,7 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
     专业的网文改编漫剧技能包，覆盖类型确定、剧情拆解、分集标注、剧本创作、内容修订全流程。根据不同改编阶段，读取对应的改编资源并生成符合漫剧规范的内容。
 
 [文件结构]
-    .openclaw/skills/webtoon-skill/
+    workspace/skills/adaptation-skill/
     ├── SKILL.md                               # 本文件（技能包核心配置）
     ├── adapt-method.md                        # 网文改编方法论（通用版）
     ├── output-style.md                        # 改编输出风格（视觉化、快节奏）
@@ -33,10 +33,10 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
 [执行流程]
     第一步：理解改编需求
         识别当前改编阶段：
-        - 如果在讨论小说类型或 plot-breakdown.md 不存在 → 类型确定阶段
+        - 如果在讨论小说类型或 adaptation/plot-breakdown.md 不存在 → 类型确定阶段
         - 如果在讨论剧情拆解或刚执行 /拆解 → 剧情拆解阶段
         - 如果在创作单集剧本或刚执行 /出稿 → 单集剧本阶段
-        - 如果用户提出修改意见或 breakdown-aligner/webtoon-aligner 返回 FAIL → 内容修订阶段
+        - 如果用户提出修改意见或 adaptation-breakdown-aligner/adaptation-script-aligner 返回 FAIL → 内容修订阶段
 
     第二步：读取改编资源
         **类型确定阶段**：
@@ -44,7 +44,7 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
             2. 获取用户提供的小说名称和类型
 
         **剧情拆解阶段**：
-            1. 读取 plot-breakdown.md（已有内容，如果存在）
+            1. 读取 adaptation/plot-breakdown.md（已有内容，如果存在）
             2. 读取用户上传的 6 章小说原文
             3. 读取 adapt-method.md（网文改编方法论，最重要）
             4. 读取 output-style.md（改编输出风格）
@@ -52,7 +52,7 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
             6. 读取 examples/plot-breakdown-example.md（剧情拆解示例）
 
         **单集剧本阶段**：
-            1. 读取 plot-breakdown.md（获取剧情点和分集信息）
+            1. 读取 adaptation/plot-breakdown.md（获取剧情点和分集信息）
             2. 读取小说源文件对应章节的原文
             3. 读取 adapt-method.md（网文改编方法论，最重要）
             4. 读取 output-style.md（改编输出风格，最重要）
@@ -61,12 +61,12 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
             7. 读取已创作的剧本（如有），确保风格一致
 
         **内容修订阶段**：
-            1. 读取被修改文档的当前版本（plot-breakdown.md / scripts/Episode-XX.md）
-            2. 读取相关基准文档（如修改剧本时，需读取 plot-breakdown.md）
+            1. 读取被修改文档的当前版本（adaptation/plot-breakdown.md / adaptation/scripts/episode-XX.md）
+            2. 读取相关基准文档（如修改剧本时，需读取 adaptation/plot-breakdown.md）
             3. 获取修改意见来源：
                 - 用户直接提出的修改意见
-                - breakdown-aligner 返回的 FAIL 反馈和具体问题清单（剧情拆解质量问题）
-                - webtoon-aligner 返回的 FAIL 反馈和具体问题清单（单集剧本一致性问题）
+                - adaptation-breakdown-aligner 返回的 FAIL 反馈和具体问题清单（剧情拆解质量问题）
+                - adaptation-script-aligner 返回的 FAIL 反馈和具体问题清单（单集剧本一致性问题）
             4. 读取对应的方法论和风格文档：
                 - 修改剧情拆解：读取 adapt-method.md、output-style.md
                 - 修改单集剧本：读取 adapt-method.md（最重要）、output-style.md
@@ -106,8 +106,8 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
         **内容修订**：
             基于修改意见 / 反馈和读取的资源：
             - **识别修改范围**：
-                • breakdown-aligner 的 FAIL 反馈：精准定位到具体剧情点和问题维度
-                • webtoon-aligner 的 FAIL 反馈：精准定位到具体集数和问题维度
+                • adaptation-breakdown-aligner 的 FAIL 反馈：精准定位到具体剧情点和问题维度
+                • adaptation-script-aligner 的 FAIL 反馈：精准定位到具体集数和问题维度
                 • 用户提出的修改意见：理解用户意图，判断影响范围
 
             - **执行修改策略**：
@@ -123,10 +123,10 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
 
     第四步：返回改编成果
         **类型确定阶段**：
-            返回符合 templates/plot-breakdown-template.md 格式的基础结构，写入 plot-breakdown.md
+            返回符合 templates/plot-breakdown-template.md 格式的基础结构，写入 adaptation/plot-breakdown.md
 
         **剧情拆解阶段**：
-            返回符合 templates/plot-breakdown-template.md 格式的剧情点列表，追加到 plot-breakdown.md
+            返回符合 templates/plot-breakdown-template.md 格式的剧情点列表，追加到 adaptation/plot-breakdown.md
 
         **单集剧本阶段**：
             返回符合 templates/出稿-template.md 格式的完整单集剧本
@@ -154,7 +154,7 @@ description: 网文改编漫剧技能包。执行剧情拆解、分集标注、�
 
     - **修订精准性原则**：
         • 修改时精准定位问题，避免过度修改
-        • 优先解决 breakdown-aligner 或 webtoon-aligner 反馈的核心问题
+        • 优先解决 adaptation-breakdown-aligner 或 adaptation-script-aligner 反馈的核心问题
         • 修改后必须保持与剧情拆解的一致性
         • 修改不应引入新的矛盾或错误
 
